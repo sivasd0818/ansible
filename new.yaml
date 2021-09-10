@@ -16,7 +16,12 @@
         src: ./Dockerfile
         dest: /dock/
         mode: '0777'
-         
+    - name: Index copy
+      copy: 
+        src: ./index.html
+        dest: /dock/
+        mode: '0777'  
+        
     - name: Image Build
       command: "docker build -t httpdimage ."
       args:

@@ -4,13 +4,20 @@
   tasks:
     - name: install httpd
       yum:
-        name: httpd
+        name: "{{ item }}"
         state: latest
+      loop:
+        - httpd
+        - docker
 
     - name: httpd start
       service:
-        name: httpd
+        name: "{{ item }}"
         state: started
+      loop:
+        - httpd
+        - docker
+        
     - name: copy
       copy:
         src: ./index.html

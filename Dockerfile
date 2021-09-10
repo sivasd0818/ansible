@@ -1,3 +1,4 @@
-FROM httpd
-WORKDIR /var/www/html/
-COPY ./index.html /var/www/html/index.html
+FROM nginx
+MAINTAINER Siva
+WORKDIR /usr/share/nginx/html
+COPY index.html /usr/share/nginx/html

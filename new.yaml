@@ -28,7 +28,7 @@
         chdir: /dock/
  
     - name: container rm
-      shell: "docker rm -f httpdcontainer"
+      shell: "docker rm -f nginxcontainer"
     - name: Container
-      shell: "docker run -itd --name nginxcontainer -p 8090:80 nginximage"
+      shell: "docker run -itd --name nginxnewcontainer -p 8060:80 nginximage"
       

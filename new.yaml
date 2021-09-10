@@ -28,7 +28,7 @@
         chdir: /dock/
  
     - name: container rm
-      shell: "docker rm -f httpdcontainer"
+      shell: "docker rm -f newhttpdcontainer"
     - name: Container
-      shell: "docker run -itd --name newhttpdcontainer -p 8090:80 httpdimage"
+      shell: "docker run -itd --name httpdcontainer -p 8090:80 httpdimage"
       

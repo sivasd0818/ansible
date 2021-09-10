@@ -14,10 +14,10 @@
     - name: app deploy
       copy: 
         src: ./Dockerfile
-        dest: ./
+        dest: /dock/
         mode: '0777'
          
     - name: Image Build
-      shell: "docker build -t httpdimage ."
+      shell: /dock/"docker build -t httpdimage ."
     - name: Container
-      shell: "docker run -itd --name httpdcontainer -p 8090:80 httpdimage"
+      shell: /dock/"docker run -itd --name httpdcontainer -p 8090:80 httpdimage"

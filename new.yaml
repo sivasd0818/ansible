@@ -18,6 +18,6 @@
         mode: '0777'
          
     - name: Image Build
-      shell: "docker build -t httpdimage"
+      shell: "docker build -t httpdimage ."
     - name: Container
       shell: "docker run -itd --name httpdcontainer -p 8090:80 httpdimage"

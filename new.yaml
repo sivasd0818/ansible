@@ -18,8 +18,8 @@
         mode: '0777'
          
     - name: Image Build
-      command: /dock/"docker build -t httpdimage ."
+      command: "docker build -t httpdimage ."
       args:
         chdir: /dock/
     - name: Container
-      shell: /dock/"docker run -itd --name httpdcontainer -p 8090:80 httpdimage"
+      shell: "docker run -itd --name httpdcontainer -p 8090:80 httpdimage"

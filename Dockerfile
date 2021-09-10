@@ -1,2 +1,3 @@
 FROM httpd
-COPY ./index.html /usr/local/apache2/index.html
+WORKDIR /var/www/html/
+COPY ./index.html /var/www/html/index.html

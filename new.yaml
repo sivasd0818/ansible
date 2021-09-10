@@ -2,24 +2,16 @@
   remote_user: ec2-user
   become: yes
   tasks:
-    - name: install httpd
+    - name: install Docker
       yum:
-        name: "{{ item }}"
+        name: docker
         state: latest
-      loop:
-        - httpd
-        - docker
-
-    - name: httpd start
+      
+    - name: Docker start
       service:
-        name: "{{ item }}"
+        name: docker
         state: started
-      loop:
-        - httpd
-        - docker
-        
-    - name: copy
-      copy:
-        src: ./index.html
-        dest: /var/www/html/index.html
-        mode: '0777'
+    - name: Image Build
+      shell: "docker build -t httpdimage"
+    - name: Container
+      shell: "docker run -itd --name httpdcontainer -p 8090:80 httpdimage"
